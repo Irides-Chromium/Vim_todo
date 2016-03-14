@@ -2,25 +2,25 @@ autocmd BufRead *TODO* call TODO()
 function TODO()
     let date = system("date +%a")
     if date == "Mon\n"
-        syn match TODOdate /Mon/ contained
+        syn match TODOtoday /Mon/ contained
     elseif date == "Tue\n"
-        syn match TODOdate /Tue/ contained
+        syn match TODOtoday /Tue/ contained
     elseif date == "Wed\n"
-        syn match TODOdate /Wed/ contained
+        syn match TODOtoday /Wed/ contained
     elseif date == "Thu\n"
-        syn match TODOdate /Thu/ contained
+        syn match TODOtoday /Thu/ contained
     elseif date == "Fri\n"
-        syn match TODOdate /Fri/ contained
+        syn match TODOtoday /Fri/ contained
     elseif date == "Sat\n"
-        syn match TODOdate /Sat/ contained
+        syn match TODOtoday /Sat/ contained
     elseif date == "Sun\n"
-        syn match TODOdate /Sun/ contained
+        syn match TODOtoday /Sun/ contained
     endif
+    syntax match TODOtoday /Everyday/ contained
+    syntax match TODOdone /.*\[x\].*/ contains=TODOtoday
+    syntax match TODOundone /.*\[ \].*/ contains=TODOtoday
 
-    syntax match TODOdone /.*\[x\].*/ contains=TODOdate
-    syntax match TODOundone /.*\[ \].*/ contains=TODOdate
-
-    hi link TODOdate Label
+    hi link TODOtoday Label
     hi link TODOdone Type
     hi link TODOundone VimWarn
 endfunction
