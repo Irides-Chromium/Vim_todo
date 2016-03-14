@@ -11,3 +11,5 @@ Item 8          [ ]    Wed
 Item 9          [ ]    Sun
 Item 10         [ ]    Sun
 Item 11         [ ]    Sun
+
+Note: Today's weekday will be marked blue, done([x]) items will be marked green and undone([ ]) items will be marked red.
